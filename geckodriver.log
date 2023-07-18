@@ -1,0 +1,81 @@
+1689705241895	geckodriver	INFO	Listening on 127.0.0.1:51210
+1689705244968	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51211" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Owner\\AppData\\Local\\Temp\\rust_mozprofileQ7PGZa"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1689705246209	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1689705246382	Marionette	INFO	Listening on port 51219
+WebDriver BiDi listening on ws://127.0.0.1:51211
+Read port: 51219
+1689705246940	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:51211/devtools/browser/b36e71d3-96e0-4d1a-a04e-4c34717f2925
+1689705254491	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://shop.cureskin.com."
+1689705255774	Marionette	INFO	Stopped listening on port 51219
+Dynamically enable window occlusion 1
+1689705364529	geckodriver	INFO	Listening on 127.0.0.1:51319
+1689705367597	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51320" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Owner\\AppData\\Local\\Temp\\rust_mozprofilenV1eFq"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1689705368209	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1689705368353	Marionette	INFO	Listening on port 51328
+WebDriver BiDi listening on ws://127.0.0.1:51320
+Read port: 51328
+1689705368774	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:51320/devtools/browser/21f1b752-aa80-4edb-aff8-b6ade3204492
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://shop.cureskin.com."
+1689705376279	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1689705379147	Marionette	INFO	Stopped listening on port 51328
+Dynamically enable window occlusion 1
+1689705394843	geckodriver	INFO	Listening on 127.0.0.1:51427
+1689705397903	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51428" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Owner\\AppData\\Local\\Temp\\rust_mozprofile4TUdmk"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1689705398531	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1689705398702	Marionette	INFO	Listening on port 51437
+WebDriver BiDi listening on ws://127.0.0.1:51428
+Read port: 51437
+1689705399245	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:51428/devtools/browser/f631ca24-064d-442e-9392-3cbd47b181cc
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://shop.cureskin.com."
+1689705406628	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1689705409151	Marionette	INFO	Stopped listening on port 51437
+Dynamically enable window occlusion 1
+1689705611668	geckodriver	INFO	Listening on 127.0.0.1:51549
+1689705614710	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "515 ... 0" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Owner\\AppData\\Local\\Temp\\rust_mozprofilegbBcZu"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1689705615322	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1689705615451	Marionette	INFO	Listening on port 51559
+WebDriver BiDi listening on ws://127.0.0.1:51550
+Read port: 51559
+1689705615798	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51550/devtools/browser/934e158a-b4a2-4bca-8612-212113691841
+1689705622710	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://shop.cureskin.com."
+1689705625853	Marionette	INFO	Stopped listening on port 51559
+Dynamically enable window occlusion 1
+1689705901646	geckodriver	INFO	Listening on 127.0.0.1:51675
+1689705904709	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "516 ... 6" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Owner\\AppData\\Local\\Temp\\rust_mozprofileRjJZFG"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1689705905299	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1689705905427	Marionette	INFO	Listening on port 51684
+WebDriver BiDi listening on ws://127.0.0.1:51676
+Read port: 51684
+1689705905879	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51676/devtools/browser/e61fec44-1763-4bb3-9a93-efdb203863b5
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://shop.cureskin.com."
+1689705913541	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'loading'.
+1689705916625	Marionette	INFO	Stopped listening on port 51684
+Dynamically enable window occlusion 1

@@ -7,9 +7,32 @@ from time import sleep
 
 
 def browser_init(context):
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    '''setup for Chrome'''
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+
+
+    '''setup for firefox'''
+    # firefox_options = webdriver.FirefoxOptions()
+    # firefox_options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+    # context.driver = webdriver.Firefox(executable_path='./geckodriver.exe', options=firefox_options)
+
+
+    '''HEADLESS MODE FOR CHROME'''
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
+    # context.driver = webdriver.Chrome(chrome_options=options, service=service)
+
+
+    '''HEADLESS MODE FOR FIREFOX FOR WINDOWS'''
+    firefox_options = webdriver.FirefoxOptions()
+    firefox_options.add_argument('--headless')
+    firefox_options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+    context.driver = webdriver.Firefox(executable_path='./geckodriver.exe', options=firefox_options)
+
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)

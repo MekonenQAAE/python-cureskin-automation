@@ -13,8 +13,9 @@ class ProductDetailsPage(Page):
 
     def verify_confirmation(self):
         sleep(1)
-        self.wait_for_element_appear(*self.CHECKOUT_BTN)
-        self.wait_for_element_clickable(*self.VIEW_CART_BTN)
+        e = self.wait_for_element_appear(*self.CHECKOUT_BTN)
+        assert e.is_displayed(), f"element {e} is not displayed"
+        # self.wait_for_element_clickable(*self.VIEW_CART_BTN)
 
     def click_view_my_cart(self):
         self.wait_for_element_click(*self.VIEW_CART_BTN)
