@@ -6,7 +6,7 @@ from app.application import Application
 from time import sleep
 
 
-def browser_init(context):
+def browser_init(context, test_name):
     '''setup for Chrome'''
     # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
@@ -28,10 +28,22 @@ def browser_init(context):
 
 
     '''HEADLESS MODE FOR FIREFOX FOR WINDOWS'''
-    firefox_options = webdriver.FirefoxOptions()
-    firefox_options.add_argument('--headless')
-    firefox_options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
-    context.driver = webdriver.Firefox(executable_path='./geckodriver.exe', options=firefox_options)
+    # firefox_options = webdriver.FirefoxOptions()
+    # firefox_options.add_argument('--headless')
+    # firefox_options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+    # context.driver = webdriver.Firefox(executable_path='./geckodriver.exe', options=firefox_options)
+
+    # #### BROWSERSTACK ####
+    desired_cap = {
+        'browser': 'Firefox',
+        'os_version': '11',
+        'os': 'Windows',
+        'sessionName': test_name
+    }
+    bs_user = 'rickymekonen_S7wo5Q'
+    bs_key = 'DJGttBWXpdRWN6qso4Vs'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
 
     context.driver.maximize_window()
@@ -44,7 +56,7 @@ def browser_init(context):
 
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
-    browser_init(context)
+    browser_init(context, scenario.name)
 
 
 def before_step(context, step):
