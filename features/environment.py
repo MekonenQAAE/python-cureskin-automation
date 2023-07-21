@@ -6,18 +6,16 @@ from app.application import Application
 from time import sleep
 
 
-def browser_init(context, test_name):
+def browser_init(context, scenario):
     '''setup for Chrome'''
     # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
     # context.driver = webdriver.Chrome(service=service)
 
-
     '''setup for firefox'''
     # firefox_options = webdriver.FirefoxOptions()
     # firefox_options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
     # context.driver = webdriver.Firefox(executable_path='./geckodriver.exe', options=firefox_options)
-
 
     '''HEADLESS MODE FOR CHROME'''
     # driver_path = ChromeDriverManager().install()
@@ -25,7 +23,6 @@ def browser_init(context, test_name):
     # options = webdriver.ChromeOptions()
     # options.add_argument('--headless')
     # context.driver = webdriver.Chrome(chrome_options=options, service=service)
-
 
     '''HEADLESS MODE FOR FIREFOX FOR WINDOWS'''
     # firefox_options = webdriver.FirefoxOptions()
@@ -36,15 +33,16 @@ def browser_init(context, test_name):
     # #### BROWSERSTACK ####
     desired_cap = {
         'browser': 'Firefox',
-        'os_version': '11',
+        'os_version': '10',
         'os': 'Windows',
-        'sessionName': test_name
+        'sessionName': scenario.name
     }
     bs_user = 'rickymekonen_S7wo5Q'
     bs_key = 'DJGttBWXpdRWN6qso4Vs'
     url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
     context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
-
+    context.driver.execute_script(
+        'browserstack_executor:{"action":"setSessionName", "arguments":{"name": " ' + scenario.name + ' " }}')
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
@@ -53,10 +51,9 @@ def browser_init(context, test_name):
     context.app = Application(context.driver)
 
 
-
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
-    browser_init(context, scenario.name)
+    browser_init(context, scenario)
 
 
 def before_step(context, step):
@@ -66,6 +63,9 @@ def before_step(context, step):
 def after_step(context, step):
     if step.status == 'failed':
         print('\nStep failed: ', step)
+        # Mark test case as FAILED on BrowserStack:
+        context.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {'
+                                      '"status":"failed", "reason": "Step failed"}}')
 
 
 def after_scenario(context, feature):
