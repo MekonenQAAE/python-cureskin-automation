@@ -67,7 +67,7 @@ def after_step(context, step):
         context.driver.execute_script('browserstack_executor: {"action": "setSessionStatus", "arguments": {'
                                       '"status":"failed", "reason": "Step failed"}}')
 
-
+    #
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()
     context.driver.quit()
