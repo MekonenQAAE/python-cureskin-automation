@@ -7,7 +7,6 @@ from time import sleep
 
 
 def browser_init(context, scenario):
-
     # Allure command
     # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/checkout_flow.feature
     # And run the following
@@ -16,6 +15,15 @@ def browser_init(context, scenario):
     driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
+
+    # Chrome DevTools Protocol (CDP) for iPhone 12 Pro dimensions
+    set_device_metrics_override = dict({
+        "width": 390,
+        "height": 844,
+        "deviceScaleFactor": 100,
+        "mobile": True
+    })
+    context.driver.execute_cdp_cmd('Emulation.setDeviceMetricsOverride', set_device_metrics_override)
 
     '''setup for firefox'''
     # firefox_options = webdriver.FirefoxOptions()
@@ -49,7 +57,6 @@ def browser_init(context, scenario):
     # context.driver.execute_script(
     #     'browserstack_executor:{"action":"setSessionName", "arguments":{"name": " ' + scenario.name + ' " }}')
 
-
     # #### BROWSERSTACK For iOS and safari ####
     # desired_cap = {
     #     'bstack:options': {
@@ -68,7 +75,6 @@ def browser_init(context, scenario):
     # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
     # context.driver.execute_script(
     #     'browserstack_executor:{"action":"setSessionName", "arguments":{"name": " ' + scenario.name + ' " }}')
-
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
@@ -94,6 +100,8 @@ def after_step(context, step):
                                       '"status":"failed", "reason": "Step failed"}}')
 
     #
+
+
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()
     context.driver.quit()
