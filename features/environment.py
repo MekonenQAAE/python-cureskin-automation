@@ -7,10 +7,15 @@ from time import sleep
 
 
 def browser_init(context, scenario):
+
+    # Allure command
+    # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/checkout_flow.feature
+    # And run the following
+    # allure serve test_results
     '''setup for Chrome'''
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 
     '''setup for firefox'''
     # firefox_options = webdriver.FirefoxOptions()
@@ -30,19 +35,40 @@ def browser_init(context, scenario):
     # firefox_options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
     # context.driver = webdriver.Firefox(executable_path='./geckodriver.exe', options=firefox_options)
 
-    # #### BROWSERSTACK ####
-    desired_cap = {
-        'browser': 'Firefox',
-        'os_version': '10',
-        'os': 'Windows',
-        'sessionName': scenario.name
-    }
-    bs_user = 'rickymekonen_S7wo5Q'
-    bs_key = 'DJGttBWXpdRWN6qso4Vs'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
-    context.driver.execute_script(
-        'browserstack_executor:{"action":"setSessionName", "arguments":{"name": " ' + scenario.name + ' " }}')
+    # #### BROWSERSTACK For Window and Firefox ####
+    # desired_cap = {
+    #     'browser': 'Firefox',
+    #     'os_version': '10',
+    #     'os': 'Windows',
+    #     'sessionName': scenario.name
+    # }
+    # bs_user = 'rickymekonen_S7wo5Q'
+    # bs_key = 'DJGttBWXpdRWN6qso4Vs'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    # context.driver.execute_script(
+    #     'browserstack_executor:{"action":"setSessionName", "arguments":{"name": " ' + scenario.name + ' " }}')
+
+
+    # #### BROWSERSTACK For iOS and safari ####
+    # desired_cap = {
+    #     'bstack:options': {
+    #         "os": "OS X",
+    #         "osVersion": "Ventura",
+    #         "browserVersion": "16.0",
+    #         "local": "false",
+    #         "seleniumVersion": "3.14.0",
+    #     },
+    #     "browserName": "Safari",
+    # }
+    #
+    # bs_user = 'rickymekonen_S7wo5Q'
+    # bs_key = 'DJGttBWXpdRWN6qso4Vs'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    # context.driver.execute_script(
+    #     'browserstack_executor:{"action":"setSessionName", "arguments":{"name": " ' + scenario.name + ' " }}')
+
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)

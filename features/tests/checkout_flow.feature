@@ -2,7 +2,7 @@
 Feature: Checkout flow
 
   Scenario: User can add a product to a cart
-    Given Open product details page https://shop.cureskin.com/collections/face-wash/products/gentle-cleanse-face-foam
+    Given Open product details page https://shop.cureskin.com/collections/sun-protection/products/sunscreen-spf-30
     When Click to add product to cart
     Then Verify "added to your cart" confirmation is shown
     When Click "View my cart"
